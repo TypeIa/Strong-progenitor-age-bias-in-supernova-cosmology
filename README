@@ -1,3 +1,4 @@
+
 # Age-Bias-Corrected SN Cosmology: Cobaya Modifications
 
 This repository provides modified components of **Cobaya v3.5.1** for Markov Chain Monte Carlo (MCMC) sampling with an age-bias-corrected Type Ia supernova (SN Ia) likelihood.
@@ -23,19 +24,26 @@ These modifications enable MCMC sampling using the age-bias-corrected SN Ia like
 
 ## 2. Installation & Usage
 
-**Step 1. Install Cobaya v3.5.1**
+### Step 1. Install Cobaya v3.5.1
 
 Install Cobaya version 3.5.1 in your Python environment.
 
-`pip install cobaya==3.5.1`
+```bash
+pip install cobaya==3.5.1
+```
 
-**Step 2. Replace the corresponding directories**
+### Step 2. Replace the corresponding directories
 
 Locate the installed Cobaya package directory (`cobaya/`).
 
 Replace the following directories in your Cobaya installation with the corresponding directories provided in this repository:
 
-**Note:** Back up the original directories before replacement. These modifications were developed for Cobaya v3.5.1, and compatibility with other versions is not guaranteed.
+| Repository directory | Target directory |
+|---|---|
+| `likelihoods/` | `cobaya/likelihoods/` |
+| `theories/` | `cobaya/theories/` |
+
+> **Note:** Back up the original directories before replacement. These modifications were developed for Cobaya v3.5.1, and compatibility with other versions is not guaranteed.
 
 ## 3. Environment Reproducibility
 
@@ -43,7 +51,9 @@ The `cobaya_env.yml` file provides the Conda environment used for the cosmologic
 
 To recreate the environment, run:
 
-`conda env create -f cobaya_env.yml`
+```bash
+conda env create -f cobaya_env.yml
+```
 
 This environment is provided to facilitate reproducibility of the published analyses.
 
@@ -71,3 +81,4 @@ All original contributions are the work of the author. Third-party components re
 Cobaya-derived components are subject to the applicable terms specified in the [official Cobaya license](https://github.com/CobayaSampler/cobaya/blob/master/LICENCE.txt).
 
 Original copyright notices and applicable licensing conditions must be preserved when redistributing or modifying third-party components.
+
