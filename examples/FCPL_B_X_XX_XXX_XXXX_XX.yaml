@@ -1,0 +1,94 @@
+likelihood:
+  bao.desi_dr2: null
+params:
+  As:
+    latex: A_\mathrm{s}
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  H0:
+    latex: H_0
+    value: 'lambda rdh, ombh2, omegam: (rdh * (1 / 147.5) * (ombh2 / 0.02236) ** 0.13
+      * (omegam / 0.1432) ** 0.23) ** (1 / 0.54) * 100'
+  YHe:
+    latex: Y_\mathrm{P}
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+  logA: 3.0448
+  mnu: 0.06
+  ns: 0.96605
+  ombh2:
+    latex: \Omega_\mathrm{b} h^2
+    prior:
+      max: 0.1
+      min: 0.005
+    proposal: 0.0001
+    ref:
+      dist: norm
+      loc: 0.0224
+      scale: 0.0001
+  omch2:
+    latex: \Omega_\mathrm{c} h^2
+    value: 'lambda omegam, omegab, mnu, H0: (omegam-omegab)*(H0/100)**2-(mnu*(3.044/3)**0.75)/94.0708'
+  omegab:
+    drop: true
+    latex: \Omega_\mathrm{b}
+    value: 'lambda ombh2, H0: ombh2/(H0/100)**2'
+  omegam:
+    drop: true
+    latex: \Omega_\mathrm{m}
+    prior:
+      max: 0.99
+      min: 0.01
+    proposal: 0.02
+    ref:
+      dist: norm
+      loc: 0.316
+      scale: 0.02
+  q0:
+    derived: 'lambda w, omegam: 0.5 * omegam + 0.5 * (1 - omegam) * (1 + 3 * w)'
+    latex: q_0
+  rdh:
+    drop: true
+    latex: r_dh
+    prior:
+      max: 1000
+      min: 10
+    proposal: 1
+    ref:
+      dist: norm
+      loc: 100
+      scale: 1
+  w:
+    latex: w_{0,\mathrm{DE}}
+    prior:
+      max: 1
+      min: -3
+    proposal: 0.02
+    ref:
+      dist: norm
+      loc: -0.99
+      scale: 0.02
+  wa:
+    latex: w_{a,\mathrm{DE}}
+    prior:
+      max: 2
+      min: -3
+    proposal: 0.05
+    ref:
+      dist: norm
+      loc: 0
+      scale: 0.05
+sampler:
+  mcmc:
+    covmat: auto
+    drag: false
+    oversample_power: 0.4
+    proposal_scale: 1.9
+theory:
+  camb:
+    extra_args:
+      dark_energy_model: ppf
+      nnu: 3.044
+      num_massive_neutrinos: 1

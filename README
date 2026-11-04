@@ -1,0 +1,73 @@
+# Age-Bias-Corrected SN Cosmology: Cobaya Modifications
+
+This repository provides modified components of **Cobaya v3.5.1** for Markov Chain Monte Carlo (MCMC) sampling with an age-bias-corrected Type Ia supernova (SN Ia) likelihood.
+
+The modifications were developed for the cosmological analyses presented in:
+
+**Son et al. (2025)**  
+*Strong Progenitor Age-bias in Supernova Cosmology. II. Alignment with DESI BAO and Signs of a Non-Accelerating Universe*  
+[arXiv:2510.13121](https://arxiv.org/abs/2510.13121)
+
+---
+
+## 1. Code Description
+
+This repository contains selected components of [Cobaya v3.5.1](https://pypi.org/project/cobaya/3.5.1/) that have been modified to incorporate an age-bias correction into the SN Ia likelihood analysis.
+
+The following directories contain the relevant implementations:
+
+- `likelihoods/` — Modified likelihood modules.
+- `theories/` — Modified theory modules.
+
+These modifications enable MCMC sampling using the age-bias-corrected SN Ia likelihood.
+
+## 2. Installation & Usage
+
+**Step 1. Install Cobaya v3.5.1**
+
+Install Cobaya version 3.5.1 in your Python environment.
+
+`pip install cobaya==3.5.1`
+
+**Step 2. Replace the corresponding directories**
+
+Locate the installed Cobaya package directory (`cobaya/`).
+
+Replace the following directories in your Cobaya installation with the corresponding directories provided in this repository:
+
+**Note:** Back up the original directories before replacement. These modifications were developed for Cobaya v3.5.1, and compatibility with other versions is not guaranteed.
+
+## 3. Environment Reproducibility
+
+The `cobaya_env.yml` file provides the Conda environment used for the cosmological analyses presented in **Son et al. (2025)**.
+
+To recreate the environment, run:
+
+`conda env create -f cobaya_env.yml`
+
+This environment is provided to facilitate reproducibility of the published analyses.
+
+## 4. Reproducing the Results
+
+The `example/` directory contains example input files for reproducing the cosmological analyses and results presented in **Son et al. (2025)**.
+
+## 5. Contact
+
+For questions, technical issues, or difficulties reproducing the analyses, please contact:
+
+**Dr. Junhyuk Son**  
+Email: [sonjunhyuk@yonsei.ac.kr](mailto:sonjunhyuk@yonsei.ac.kr)
+
+---
+
+## Copyright & License
+
+Copyright © 2026 Junhyuk Son for original contributions.
+
+This repository contains code independently developed and modified by the author, as well as selected components from third-party sources, including [Cobaya](https://github.com/CobayaSampler/cobaya).
+
+All original contributions are the work of the author. Third-party components remain the intellectual property of their respective copyright holders and are subject to their original licensing terms.
+
+Cobaya-derived components are subject to the applicable terms specified in the [official Cobaya license](https://github.com/CobayaSampler/cobaya/blob/master/LICENCE.txt).
+
+Original copyright notices and applicable licensing conditions must be preserved when redistributing or modifying third-party components.
